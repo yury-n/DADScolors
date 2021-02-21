@@ -781,7 +781,7 @@ function objEquiv(a, b) {
 // You can access browser APIs in the <script> tag inside "ui.html" which has a
 // full browser environment (see documentation).
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__);
+figma.showUI(__html__, { width: 400, height: 400 });
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
@@ -805,6 +805,7 @@ figma.ui.onmessage = (msg) => {
     figma.closePlugin();
 };
 const collectedStyleData = [];
+// dummy methods from themer
 function styleName(name) {
     return name;
 }
@@ -950,6 +951,9 @@ if (selection) {
 // console.log({ collectedStyleData });
 // generate CSS vars code
 const processedStyleNames = [];
+const sharedStyleNames = [];
+const noThemeStyleNames = [];
+const nonBaseStyleNames = [];
 const stylesGrouped = {
     Dark: [],
     Light: [],
@@ -957,33 +961,62 @@ const stylesGrouped = {
 };
 collectedStyleData.forEach((style) => {
     const name = style.name;
-    if (!/(Dark|Light|Green)\/[0-9]+\./.test(name)) {
-        return;
-    }
+    const isComponentStyle = /(Dark|Light|Green)\/[0-9]+\./.test(name);
     if (processedStyleNames.includes(name)) {
         return;
     }
     const nameParts = name.split("/");
-    const theme = nameParts[0];
+    const theme = nameParts.shift();
+    const nameWithoutTheme = nameParts.join("/");
     console.log(name);
-    const usedBaseStyle = baseStyles.find((baseStyle) => deepEqual(baseStyle.paints, style.paints));
-    if (usedBaseStyle) {
-        console.log(">>", usedBaseStyle.name);
-        stylesGrouped[theme].push({
-            styleName: name,
-            baseStyleName: usedBaseStyle,
-        });
+    if (!["Dark", "Light", "Theme"].includes(theme)) {
+        noThemeStyleNames.push(name);
+    }
+    else {
+        const usedBaseStyle = baseStyles.find((baseStyle) => deepEqual(baseStyle.paints, style.paints));
+        if (usedBaseStyle) {
+            stylesGrouped[theme].push({
+                styleName: name,
+                baseStyleName: usedBaseStyle.name,
+                scope: isComponentStyle ? "component" : "shared",
+            });
+        }
+        else {
+            nonBaseStyleNames.push(name);
+        }
+        if (!isComponentStyle && !sharedStyleNames.includes(nameWithoutTheme)) {
+            sharedStyleNames.push(nameWithoutTheme);
+        }
     }
     processedStyleNames.push(name);
 });
-console.log({ stylesGrouped });
-figma.ui.postMessage(`
-@theme-dark {
-  .root {
-    ...
-  }
-}
-`);
+const toCSSCase = (name) => name.toLowerCase().replace(/\s/g, "-");
+let output = "";
+Object.keys(stylesGrouped).forEach((theme) => {
+    output += `@theme-${theme.toLowerCase()} {\n`;
+    const sharedStyles = stylesGrouped[theme].filter((s) => s.scope === "shared");
+    if (sharedStyles.length) {
+        sharedStyles.forEach((style) => {
+            const styleName = toCSSCase(style.styleName.split("/").pop());
+            const baseStyleName = toCSSCase(style.baseStyleName);
+            output += `  --${styleName}: var(--${baseStyleName});\n`;
+        });
+    }
+    const componentStyles = stylesGrouped[theme].filter((s) => s.scope === "component");
+    if (componentStyles.length) {
+        output += `  .root {\n`;
+        componentStyles.forEach((style) => {
+            const styleName = toCSSCase(style.styleName.split("/").pop());
+            const baseStyleName = toCSSCase(style.baseStyleName);
+            output += `    --${styleName}: var(--${baseStyleName});\n`;
+        });
+        output += `  }\n`;
+    }
+    output += `}\n\n`;
+});
+figma.ui.postMessage({ code: output, sharedStyleNames });
+// uses shared styles:
+// don't use base DS styles
 // collect styles from base color swatches and output
 // const existingStyleNames = [];
 // const collectedStyleDataSimple = [];

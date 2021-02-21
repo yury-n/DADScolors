@@ -1,4 +1,10 @@
 <style>
+  #page {
+    font-family: sans-serif;
+  }
+  .shared {
+    white-space: pre-wrap;
+  }
   .code {
     background: #f5f5f5;
     font-family: Courier New;
@@ -9,11 +15,25 @@
 </style>
 
 <div id="page">
+  <div id="non-base-styles-block" style="display: none;">
+    <strong>Don't use base DS styles</strong>
+    <div id="non-base-styles" class="non-base-styles"></div>
+  </div>
+  <div id="shared-block" style="display: none;">
+    <strong>Uses shared styles</strong>
+    <div id="shared-list" class="shared"></div>
+  </div>
   <div id="code" class="code"></div>
 </div>
 
 <script>
   onmessage = (event) => {
-    document.getElementById('code').innerHTML = event.data.pluginMessage
+    const { code, sharedStyleNames } = event.data.pluginMessage;
+    document.getElementById('code').innerHTML = code;
+    if (sharedStyleNames) {
+      document.getElementById('shared-list').innerHTML = sharedStyleNames.join("\n");
+      document.getElementById('shared-block').style.display = 'block';
+    }
+
   }
 </script>
