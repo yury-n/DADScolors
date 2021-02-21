@@ -961,7 +961,11 @@ if (selection) {
 // generate CSS vars code
 
 const processedStyleNames = [];
-const stylesGrouped = {};
+const stylesGrouped = {
+  Dark: [],
+  Light: [],
+  Green: [],
+};
 collectedStyleData.forEach((style) => {
   const name = style.name;
   if (!/(Dark|Light|Green)\/[0-9]+\./.test(name)) {
@@ -986,6 +990,16 @@ collectedStyleData.forEach((style) => {
 
   processedStyleNames.push(name);
 });
+
+console.log({ stylesGrouped });
+
+figma.ui.postMessage(`
+@theme-dark {
+  .root {
+    ...
+  }
+}
+`);
 
 // collect styles from base color swatches and output
 
