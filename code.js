@@ -781,7 +781,7 @@ function objEquiv(a, b) {
 // You can access browser APIs in the <script> tag inside "ui.html" which has a
 // full browser environment (see documentation).
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__, { width: 400, height: 400 });
+figma.showUI(__html__, { width: 600, height: 400 });
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
@@ -1014,7 +1014,7 @@ Object.keys(stylesGrouped).forEach((theme) => {
     }
     output += `}\n\n`;
 });
-figma.ui.postMessage({ code: output, sharedStyleNames });
+figma.ui.postMessage({ code: output, sharedStyleNames, nonBaseStyleNames });
 // uses shared styles:
 // don't use base DS styles
 // collect styles from base color swatches and output
