@@ -954,10 +954,12 @@ let selection = Array.from(figma.currentPage.selection);
 if (selection) {
   selection.forEach((node) => {
     collectColorStyles(node);
+    collectEffectStyles(node);
+    // collectTextStyles(node);
   });
 }
 
-// console.log({ collectedStyleData });
+console.log({ collectedStyleData });
 
 // generate CSS vars code
 
@@ -969,19 +971,23 @@ const stylesGrouped = {
   Dark: [],
   Light: [],
   Green: [],
+  Global: [],
 };
 collectedStyleData.forEach((style) => {
   const name = style.name;
-  const isComponentStyle = /(Dark|Light|Green)\/[0-9]+\./.test(name);
+  const isComponentStyle = /(Dark|Light|Green|Global)\/[0-9]+\./.test(name);
 
   if (processedStyleNames.includes(name)) {
     return;
   }
   const nameParts = name.split("/");
+  if (nameParts[1] === "Specs Kit") {
+    return; // ignore
+  }
   const theme = nameParts.shift();
   const nameWithoutTheme = nameParts.join("/");
-  console.log(name);
-  if (!["Dark", "Light", "Theme"].includes(theme)) {
+
+  if (!["Dark", "Light", "Green", "Global"].includes(theme)) {
     noThemeStyleNames.push(name);
   } else {
     const usedBaseStyle = baseStyles.find((baseStyle) =>
@@ -1007,6 +1013,9 @@ const toCSSCase = (name: string) => name.toLowerCase().replace(/\s/g, "-");
 
 let output = "";
 Object.keys(stylesGrouped).forEach((theme) => {
+  if (stylesGrouped[theme].length === 0) {
+    return;
+  }
   output += `@theme-${theme.toLowerCase()} {\n`;
   const sharedStyles = stylesGrouped[theme].filter((s) => s.scope === "shared");
   if (sharedStyles.length) {

@@ -73,7 +73,7 @@
     <div id="non-DS-styles" class="tag-list"></div>
   </div>
   <div id="shared-block" class="block" style="display: none;">
-    <div class="header">Uses shared styles</div>
+    <div class="header">Shared styles</div>
     <div id="shared-list" class="tag-list"></div>
   </div>
   <div id="code-block" class="block">
@@ -86,18 +86,15 @@
   onmessage = (event) => {
     const { code, sharedStyleNames, nonBaseStyleNames } = event.data.pluginMessage;
     const sharedStyleNamesFormatted = sharedStyleNames.map(s => s.replace(/\//g, ' <strong>/</strong> '));
-    const nonBaseStyleNamesFormatted = nonBaseStyleNames.map(s => s.replace(/\//g, ' <strong>/</strong> '));
-    document.getElementById('code').value = code;
-    if (sharedStyleNames) {
-      document.getElementById('shared-list').innerHTML = '<span class="tag">' + nonBaseStyleNamesFormatted.join('</span><span class="tag">') + '</span>';
-      document.getElementById('shared-block').style.display = 'block';
-    }
+    const nonBaseStyleNamesFormatted = nonBaseStyleNames.map(s => s.replace(/\//g, ' <strong>/</strong> '));    
     if (nonBaseStyleNames) {
-      document.getElementById('non-DS-styles').innerHTML = '<span class="tag invalid">' + sharedStyleNamesFormatted.join('</span><span class="tag invalid">') + '</span>';
+      document.getElementById('non-DS-styles').innerHTML = '<span class="tag invalid">' + nonBaseStyleNames.join('</span><span class="tag invalid">') + '</span>';
       document.getElementById('non-DS-styles-block').style.display = 'block';
     }
-    document.getElementById('copy-button').addEventListener('click', () => {
-      copyToClipboard('code');
-    })
+    if (sharedStyleNames) {
+      document.getElementById('shared-list').innerHTML = '<span class="tag">' + sharedStyleNamesFormatted.join('</span><span class="tag">') + '</span>';
+      document.getElementById('shared-block').style.display = 'block';
+    }
+    document.getElementById('code').value = code;
   }
 </script>
