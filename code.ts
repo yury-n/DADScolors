@@ -3,6 +3,212 @@ const collectedStyleData = [];
 
 const baseStyles = [
   {
+    name: "Gradient4",
+    type: "PAINT",
+    paints: [
+      {
+        type: "GRADIENT_LINEAR",
+        visible: true,
+        opacity: 1,
+        blendMode: "NORMAL",
+        gradientStops: [
+          {
+            color: {
+              r: 0.2980392277240753,
+              g: 0.8666666746139526,
+              b: 0.7411764860153198,
+              a: 1,
+            },
+            position: 0,
+          },
+          {
+            color: {
+              r: 0.0235294122248888,
+              g: 0.9490196108818054,
+              b: 0.5254902243614197,
+              a: 1,
+            },
+            position: 1,
+          },
+        ],
+        gradientTransform: [
+          [-0.4999999403953552, 0.4999999701976776, 0.4999999403953552],
+          [-1.237088918685913, -1.237088918685913, 1.737088918685913],
+        ],
+      },
+    ],
+  },
+  {
+    name: "Gradient1",
+    type: "PAINT",
+    paints: [
+      {
+        type: "GRADIENT_LINEAR",
+        visible: true,
+        opacity: 1,
+        blendMode: "NORMAL",
+        gradientStops: [
+          {
+            color: {
+              r: 0.364705890417099,
+              g: 0.364705890417099,
+              b: 0.42352941632270813,
+              a: 1,
+            },
+            position: 0,
+          },
+          {
+            color: {
+              r: 0.13333334028720856,
+              g: 0.15294118225574493,
+              b: 0.16862745583057404,
+              a: 1,
+            },
+            position: 1,
+          },
+        ],
+        gradientTransform: [
+          [-0.4999999701976776, 0.5, 0.4999999701976776],
+          [-1.2370890378952026, -1.2370890378952026, 1.7370890378952026],
+        ],
+      },
+    ],
+  },
+  {
+    name: "Gradient2",
+    type: "PAINT",
+    paints: [
+      {
+        type: "GRADIENT_LINEAR",
+        visible: true,
+        opacity: 1,
+        blendMode: "NORMAL",
+        gradientStops: [
+          {
+            color: {
+              r: 0.6941176652908325,
+              g: 0.6941176652908325,
+              b: 0.7254902124404907,
+              a: 1,
+            },
+            position: 0,
+          },
+          {
+            color: {
+              r: 0.9176470637321472,
+              g: 0.9176470637321472,
+              b: 0.9176470637321472,
+              a: 1,
+            },
+            position: 1,
+          },
+        ],
+        gradientTransform: [
+          [0.5, -0.5, 0.5],
+          [0.5, 0.5, 1.1657341758564144e-15],
+        ],
+      },
+    ],
+  },
+  {
+    name: "Gradient3",
+    type: "PAINT",
+    paints: [
+      {
+        type: "GRADIENT_LINEAR",
+        visible: true,
+        opacity: 1,
+        blendMode: "NORMAL",
+        gradientStops: [
+          {
+            color: {
+              r: 0.545098066329956,
+              g: 0.6196078658103943,
+              b: 0.5607843399047852,
+              a: 1,
+            },
+            position: 0,
+          },
+          {
+            color: {
+              r: 0.3803921639919281,
+              g: 0.45098039507865906,
+              b: 0.3843137323856354,
+              a: 1,
+            },
+            position: 1,
+          },
+        ],
+        gradientTransform: [
+          [-0.4999999403953552, 0.5000000596046448, 0.4999999403953552],
+          [-1.2370891571044922, -1.2370891571044922, 1.7370891571044922],
+        ],
+      },
+    ],
+  },
+  {
+    name: "Gradient5",
+    type: "PAINT",
+    paints: [
+      {
+        type: "GRADIENT_LINEAR",
+        visible: true,
+        opacity: 1,
+        blendMode: "NORMAL",
+        gradientStops: [
+          {
+            color: {
+              r: 0.9490196108818054,
+              g: 0.250980406999588,
+              b: 0.4313725531101227,
+              a: 1,
+            },
+            position: 0,
+          },
+          {
+            color: { r: 1, g: 0.7019608020782471, b: 0.3607843220233917, a: 1 },
+            position: 1,
+          },
+        ],
+        gradientTransform: [
+          [-0.4999999403953552, 0.4999999701976776, 0.4999999403953552],
+          [-1.237088918685913, -1.237088918685913, 1.737088918685913],
+        ],
+      },
+    ],
+  },
+  {
+    name: "Gradient6",
+    type: "PAINT",
+    paints: [
+      {
+        type: "GRADIENT_LINEAR",
+        visible: true,
+        opacity: 1,
+        blendMode: "NORMAL",
+        gradientStops: [
+          {
+            color: {
+              r: 0.7843137383460999,
+              g: 0.4274509847164154,
+              b: 0.843137264251709,
+              a: 1,
+            },
+            position: 0,
+          },
+          {
+            color: { r: 0.4588235318660736, g: 0.4745098054409027, b: 1, a: 1 },
+            position: 1,
+          },
+        ],
+        gradientTransform: [
+          [-0.4999999403953552, 0.4999999701976776, 0.4999999403953552],
+          [-1.237088918685913, -1.237088918685913, 1.737088918685913],
+        ],
+      },
+    ],
+  },
+  {
     name: "Gray9",
     type: "PAINT",
     paints: [
@@ -1108,6 +1314,7 @@ const getStyleNameWithoutTheme = (name) => {
 const toCSSCase = (name: string) => name.toLowerCase().replace(/(\s|\/)/g, "-");
 
 const selections = Array.from(figma.currentPage.selection);
+
 if (selections.length > 1) {
   // collect mode
   selections.forEach((selection) => {
@@ -1119,7 +1326,7 @@ if (selections.length > 1) {
   const collectedStyleDataSimple = [];
   collectedStyleData.forEach((style) => {
     const name = style.name.split("/").pop();
-    if (!/(Gray|Green|Khaki|Purple|Red)/.test(name)) {
+    if (!/(Gray|Green|Khaki|Purple|Red|Gradient)/.test(name)) {
       return;
     }
     if (existingStyleNames.includes(name)) {
