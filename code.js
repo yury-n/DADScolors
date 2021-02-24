@@ -942,15 +942,21 @@ function collectEffectStyles(node) {
         }
     }
 }
-let selection = Array.from(figma.currentPage.selection);
+let selection = Array.from(figma.currentPage.selection)[0];
+const frameName = selection.name;
+console.log({ frameName });
 if (selection) {
-    selection.forEach((node) => {
-        collectColorStyles(node);
-        collectEffectStyles(node);
-        // collectTextStyles(node);
-    });
+    collectColorStyles(selection);
+    collectEffectStyles(selection);
+    // collectTextStyles(selection);
 }
 console.log({ collectedStyleData });
+const getStyleNameWithoutTheme = (name) => {
+    const nameParts = name.split("/");
+    nameParts.shift();
+    const nameWithoutTheme = nameParts.join("/");
+    return nameWithoutTheme;
+};
 // generate CSS vars code
 const processedStyleNames = [];
 const sharedStyleNames = [];
@@ -995,7 +1001,7 @@ collectedStyleData.forEach((style) => {
     }
     processedStyleNames.push(name);
 });
-const toCSSCase = (name) => name.toLowerCase().replace(/\s/g, "-");
+const toCSSCase = (name) => name.toLowerCase().replace(/(\s|\/)/g, "-");
 let output = "";
 Object.keys(stylesGrouped).forEach((theme) => {
     if (stylesGrouped[theme].length === 0) {
@@ -1004,11 +1010,13 @@ Object.keys(stylesGrouped).forEach((theme) => {
     output += `@theme-${theme.toLowerCase()} {\n`;
     const sharedStyles = stylesGrouped[theme].filter((s) => s.scope === "shared");
     if (sharedStyles.length) {
+        output += `\n`;
         sharedStyles.forEach((style) => {
-            const styleName = toCSSCase(style.styleName.split("/").pop());
+            const styleName = toCSSCase(getStyleNameWithoutTheme(style.styleName));
             const baseStyleName = toCSSCase(style.baseStyleName);
             output += `  --${styleName}: var(--${baseStyleName});\n`;
         });
+        output += `\n`;
     }
     const componentStyles = stylesGrouped[theme].filter((s) => s.scope === "component");
     if (componentStyles.length) {
