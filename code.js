@@ -805,16 +805,19 @@ figma.ui.onmessage = (msg) => {
     figma.closePlugin();
 };
 const collectedStyleData = [];
-// dummy methods from themer
-function styleName(name) {
-    return name;
-}
-function themeName(name) {
-    return name;
+function getDSindex(name) {
+    const matchResult = name.match(/^([0-9]+\.[0-9]+.*?)\s/);
+    return matchResult && matchResult[1];
 }
 function collectColorStyles(node) {
     if (node.children) {
         node.children.forEach((child) => {
+            if (child.type === "INSTANCE" &&
+                getDSindex(child.name) &&
+                getDSindex(child.name) !== currentComponentDSIndex) {
+                // a different component inside -- skip
+                return;
+            }
             collectColorStyles(child);
         });
     }
@@ -823,13 +826,13 @@ function collectColorStyles(node) {
             let objectStyle = figma.getStyleById(node.backgroundStyleId);
             if (objectStyle.key) {
                 let style = {
-                    name: styleName(objectStyle.name),
+                    name: objectStyle.name,
+                    description: objectStyle.description,
                     key: objectStyle.key,
-                    theme: themeName(objectStyle.name),
                     type: "PAINT",
                     paints: objectStyle["paints"],
                 };
-                if (style.name && style.key && style.theme && style.type) {
+                if (style.name && style.key && style.type) {
                     collectedStyleData.push(style);
                 }
                 else {
@@ -850,14 +853,17 @@ function collectColorStyles(node) {
         if (node.fillStyleId) {
             let objectStyle = figma.getStyleById(node.fillStyleId);
             if (objectStyle.key) {
+                // if (objectStyle.name.includes("D1")) {
+                //   console.log(">>>", node.name);
+                // }
                 let style = {
-                    name: styleName(objectStyle.name),
+                    name: objectStyle.name,
+                    description: objectStyle.description,
                     key: objectStyle.key,
-                    theme: themeName(objectStyle.name),
                     type: "PAINT",
                     paints: objectStyle["paints"],
                 };
-                if (style.name && style.key && style.theme && style.type) {
+                if (style.name && style.key && style.type) {
                     collectedStyleData.push(style);
                 }
                 else {
@@ -870,13 +876,13 @@ function collectColorStyles(node) {
             let objectStyle = figma.getStyleById(node.strokeStyleId);
             if (objectStyle.key) {
                 let style = {
-                    name: styleName(objectStyle.name),
+                    name: objectStyle.name,
+                    description: objectStyle.description,
                     key: objectStyle.key,
-                    theme: themeName(objectStyle.name),
                     type: "PAINT",
                     paints: objectStyle["paints"],
                 };
-                if (style.name && style.key && style.theme && style.type) {
+                if (style.name && style.key && style.type) {
                     collectedStyleData.push(style);
                 }
                 else {
@@ -895,17 +901,20 @@ function collectTextStyles(node) {
             collectTextStyles(child);
         });
     }
-    if (node.type === "TEXT" && node.textStyleId != "MIXED" && node.textStyleId) {
+    if (node.type === "TEXT" &&
+        node.textStyleId != "MIXED" &&
+        node.textStyleId &&
+        typeof node.textStyleId === "string") {
         let objectStyle = figma.getStyleById(node.textStyleId);
         // key will only be available for remote styles
         if (objectStyle.key) {
             let style = {
-                name: styleName(objectStyle.name),
+                name: objectStyle.name,
+                description: objectStyle.description,
                 key: objectStyle.key,
-                theme: themeName(objectStyle.name),
                 type: "TEXT",
             };
-            if (style.name && style.key && style.theme && style.type) {
+            if (style.name && style.key && style.type) {
                 collectedStyleData.push(style);
             }
             else {
@@ -927,12 +936,12 @@ function collectEffectStyles(node) {
         // key will only be available for remote styles
         if (objectStyle.key) {
             let style = {
-                name: styleName(objectStyle.name),
+                name: objectStyle.name,
+                description: objectStyle.description,
                 key: objectStyle.key,
-                theme: themeName(objectStyle.name),
                 type: "TEXT",
             };
-            if (style.name && style.key && style.theme && style.type) {
+            if (style.name && style.key && style.type) {
                 collectedStyleData.push(style);
             }
             else {
@@ -944,11 +953,11 @@ function collectEffectStyles(node) {
 }
 let selection = Array.from(figma.currentPage.selection)[0];
 const frameName = selection.name;
-console.log({ frameName });
+const currentComponentDSIndex = getDSindex(frameName);
 if (selection) {
     collectColorStyles(selection);
     collectEffectStyles(selection);
-    // collectTextStyles(selection);
+    collectTextStyles(selection);
 }
 console.log({ collectedStyleData });
 const getStyleNameWithoutTheme = (name) => {
@@ -966,11 +975,11 @@ const stylesGrouped = {
     Dark: [],
     Light: [],
     Green: [],
-    Global: [],
+    Any: [],
 };
 collectedStyleData.forEach((style) => {
     const name = style.name;
-    const isComponentStyle = /(Dark|Light|Green|Global)\/[0-9]+\./.test(name);
+    const isComponentStyle = /(Dark|Light|Green|Any)\/[0-9]+\./.test(name);
     if (processedStyleNames.includes(name)) {
         return;
     }
@@ -980,15 +989,18 @@ collectedStyleData.forEach((style) => {
     }
     const theme = nameParts.shift();
     const nameWithoutTheme = nameParts.join("/");
-    if (!["Dark", "Light", "Green", "Global"].includes(theme)) {
+    if (!["Dark", "Light", "Green", "Any"].includes(theme)) {
         noThemeStyleNames.push(name);
     }
     else {
-        const usedBaseStyle = baseStyles.find((baseStyle) => deepEqual(baseStyle.paints, style.paints));
-        if (usedBaseStyle) {
+        let baseStyleName = style.description;
+        if (!baseStyleName) {
+            baseStyleName = (baseStyles.find((baseStyle) => deepEqual(baseStyle.paints, style.paints)) || {}).name;
+        }
+        if (baseStyleName) {
             stylesGrouped[theme].push({
                 styleName: name,
-                baseStyleName: usedBaseStyle.name,
+                baseStyleName: baseStyleName,
                 scope: isComponentStyle ? "component" : "shared",
             });
         }
@@ -1009,16 +1021,20 @@ Object.keys(stylesGrouped).forEach((theme) => {
     }
     output += `@theme-${theme.toLowerCase()} {\n`;
     const sharedStyles = stylesGrouped[theme].filter((s) => s.scope === "shared");
+    const componentStyles = stylesGrouped[theme].filter((s) => s.scope === "component");
     if (sharedStyles.length) {
-        output += `\n`;
+        if (componentStyles.length) {
+            output += `\n`;
+        }
         sharedStyles.forEach((style) => {
             const styleName = toCSSCase(getStyleNameWithoutTheme(style.styleName));
             const baseStyleName = toCSSCase(style.baseStyleName);
             output += `  --${styleName}: var(--${baseStyleName});\n`;
         });
-        output += `\n`;
+        if (componentStyles.length) {
+            output += `\n`;
+        }
     }
-    const componentStyles = stylesGrouped[theme].filter((s) => s.scope === "component");
     if (componentStyles.length) {
         output += `  .root {\n`;
         componentStyles.forEach((style) => {
