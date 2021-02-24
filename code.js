@@ -1,3 +1,5 @@
+let currentComponentDSIndex;
+const collectedStyleData = [];
 const baseStyles = [
     {
         name: "Gray9",
@@ -704,6 +706,131 @@ const baseStyles = [
             },
         ],
     },
+    {
+        name: "GreenCTA",
+        type: "PAINT",
+        paints: [
+            {
+                type: "SOLID",
+                visible: true,
+                opacity: 1,
+                blendMode: "NORMAL",
+                color: {
+                    r: 0.1725490242242813,
+                    g: 0.529411792755127,
+                    b: 0.6470588445663452,
+                },
+            },
+        ],
+    },
+    {
+        name: "Green Overlay 1",
+        type: "PAINT",
+        paints: [
+            {
+                type: "GRADIENT_LINEAR",
+                visible: true,
+                opacity: 1,
+                blendMode: "NORMAL",
+                gradientStops: [
+                    {
+                        color: {
+                            r: 0.95686274766922,
+                            g: 0.9803921580314636,
+                            b: 0.9450980424880981,
+                            a: 0,
+                        },
+                        position: 0,
+                    },
+                    {
+                        color: {
+                            r: 0.95686274766922,
+                            g: 0.9803921580314636,
+                            b: 0.9450980424880981,
+                            a: 1,
+                        },
+                        position: 1,
+                    },
+                ],
+                gradientTransform: [
+                    [6.123234262925839e-17, 1, 0],
+                    [-1, 6.123234262925839e-17, 1],
+                ],
+            },
+        ],
+    },
+    {
+        name: "Green Overlay 2",
+        type: "PAINT",
+        paints: [
+            {
+                type: "GRADIENT_LINEAR",
+                visible: true,
+                opacity: 1,
+                blendMode: "NORMAL",
+                gradientStops: [
+                    {
+                        color: {
+                            r: 0.9058823585510254,
+                            g: 0.929411768913269,
+                            b: 0.8941176533699036,
+                            a: 0,
+                        },
+                        position: 0,
+                    },
+                    {
+                        color: {
+                            r: 0.9058823585510254,
+                            g: 0.929411768913269,
+                            b: 0.8941176533699036,
+                            a: 1,
+                        },
+                        position: 1,
+                    },
+                ],
+                gradientTransform: [
+                    [6.123234262925839e-17, 1, 0],
+                    [-1, 6.123234262925839e-17, 1],
+                ],
+            },
+        ],
+    },
+    {
+        name: "Green Overlay 3",
+        type: "PAINT",
+        paints: [
+            {
+                type: "GRADIENT_LINEAR",
+                visible: true,
+                opacity: 1,
+                blendMode: "NORMAL",
+                gradientStops: [
+                    {
+                        color: {
+                            r: 0.8627451062202454,
+                            g: 0.8980392217636108,
+                            b: 0.843137264251709,
+                            a: 0,
+                        },
+                        position: 0,
+                    },
+                    {
+                        color: {
+                            r: 0.8627451062202454,
+                            g: 0.8980392217636108,
+                            b: 0.843137264251709,
+                            a: 1,
+                        },
+                        position: 1,
+                    },
+                ],
+                gradientTransform: [
+                    [6.123234262925839e-17, 1, 0],
+                    [-1, 6.123234262925839e-17, 1],
+                ],
+            },
+        ],
+    },
 ];
 // DEEP EQUAL
 // DEEP EQUAL
@@ -767,8 +894,13 @@ function objEquiv(a, b) {
     }
     for (i = ka.length - 1; i >= 0; i--) {
         key = ka[i];
-        if (!deepEqual(a[key], b[key]))
+        let isDeepEqual = deepEqual(a[key], b[key]);
+        if (["r", "g", "b"].includes(key)) {
+            isDeepEqual = deepEqual(Math.round(a[key] * 255), Math.round(b[key] * 255));
+        }
+        if (!isDeepEqual) {
             return false;
+        }
     }
     return true;
 }
@@ -804,7 +936,6 @@ figma.ui.onmessage = (msg) => {
     // keep running, which shows the cancel button at the bottom of the screen.
     figma.closePlugin();
 };
-const collectedStyleData = [];
 function getDSindex(name) {
     const matchResult = name.match(/^([0-9]+\.[0-9]+.*?)\s/);
     return matchResult && matchResult[1];
@@ -951,120 +1082,128 @@ function collectEffectStyles(node) {
         }
     }
 }
-let selection = Array.from(figma.currentPage.selection)[0];
-const frameName = selection.name;
-const currentComponentDSIndex = getDSindex(frameName);
-if (selection) {
-    collectColorStyles(selection);
-    collectEffectStyles(selection);
-    collectTextStyles(selection);
-}
-console.log({ collectedStyleData });
 const getStyleNameWithoutTheme = (name) => {
     const nameParts = name.split("/");
     nameParts.shift();
     const nameWithoutTheme = nameParts.join("/");
     return nameWithoutTheme;
 };
-// generate CSS vars code
-const processedStyleNames = [];
-const sharedStyleNames = [];
-const noThemeStyleNames = [];
-const nonBaseStyleNames = [];
-const stylesGrouped = {
-    Dark: [],
-    Light: [],
-    Green: [],
-    Any: [],
-};
-collectedStyleData.forEach((style) => {
-    const name = style.name;
-    const isComponentStyle = /(Dark|Light|Green|Any)\/[0-9]+\./.test(name);
-    if (processedStyleNames.includes(name)) {
-        return;
-    }
-    const nameParts = name.split("/");
-    if (nameParts[1] === "Specs Kit") {
-        return; // ignore
-    }
-    const theme = nameParts.shift();
-    const nameWithoutTheme = nameParts.join("/");
-    if (!["Dark", "Light", "Green", "Any"].includes(theme)) {
-        noThemeStyleNames.push(name);
-    }
-    else {
-        let baseStyleName = style.description;
-        if (!baseStyleName) {
-            baseStyleName = (baseStyles.find((baseStyle) => deepEqual(baseStyle.paints, style.paints)) || {}).name;
+const toCSSCase = (name) => name.toLowerCase().replace(/(\s|\/)/g, "-");
+const selections = Array.from(figma.currentPage.selection);
+if (selections.length > 1) {
+    // collect mode
+    selections.forEach((selection) => {
+        if (selection) {
+            collectColorStyles(selection);
         }
-        if (baseStyleName) {
-            stylesGrouped[theme].push({
-                styleName: name,
-                baseStyleName: baseStyleName,
-                scope: isComponentStyle ? "component" : "shared",
-            });
+    });
+    const existingStyleNames = [];
+    const collectedStyleDataSimple = [];
+    collectedStyleData.forEach((style) => {
+        const name = style.name.split("/").pop();
+        if (!/(Gray|Green|Khaki|Purple|Red)/.test(name)) {
+            return;
+        }
+        if (existingStyleNames.includes(name)) {
+            return;
+        }
+        collectedStyleDataSimple.push({
+            name,
+            type: style.type,
+            paints: style.paints,
+        });
+        existingStyleNames.push(name);
+    });
+    console.log(JSON.stringify(collectedStyleDataSimple));
+}
+else {
+    // generate mode
+    const selection = selections[0];
+    const frameName = selection.name;
+    currentComponentDSIndex = getDSindex(frameName);
+    if (selection) {
+        collectColorStyles(selection);
+        collectEffectStyles(selection);
+        collectTextStyles(selection);
+    }
+    console.log({ collectedStyleData });
+    const processedStyleNames = [];
+    const sharedStyleNames = [];
+    const noThemeStyleNames = [];
+    const nonBaseStyleNames = [];
+    const stylesGrouped = {
+        Dark: [],
+        Light: [],
+        Green: [],
+        Any: [],
+    };
+    collectedStyleData.forEach((style) => {
+        const name = style.name;
+        const isComponentStyle = /(Dark|Light|Green|Any)\/[0-9]+\./.test(name);
+        if (processedStyleNames.includes(name)) {
+            return;
+        }
+        const nameParts = name.split("/");
+        if (nameParts[1] === "Specs Kit") {
+            return; // ignore
+        }
+        const theme = nameParts.shift();
+        const nameWithoutTheme = nameParts.join("/");
+        if (!["Dark", "Light", "Green", "Any"].includes(theme)) {
+            noThemeStyleNames.push(name);
         }
         else {
-            nonBaseStyleNames.push(name);
+            let baseStyleName = style.description;
+            if (!baseStyleName) {
+                baseStyleName = (baseStyles.find((baseStyle) => deepEqual(baseStyle.paints, style.paints)) || {}).name;
+            }
+            if (baseStyleName) {
+                stylesGrouped[theme].push({
+                    styleName: name,
+                    baseStyleName: baseStyleName,
+                    scope: isComponentStyle ? "component" : "shared",
+                });
+            }
+            else {
+                nonBaseStyleNames.push(name);
+            }
+            if (!isComponentStyle && !sharedStyleNames.includes(nameWithoutTheme)) {
+                sharedStyleNames.push(nameWithoutTheme);
+            }
         }
-        if (!isComponentStyle && !sharedStyleNames.includes(nameWithoutTheme)) {
-            sharedStyleNames.push(nameWithoutTheme);
+        processedStyleNames.push(name);
+    });
+    let output = "";
+    Object.keys(stylesGrouped).forEach((theme) => {
+        if (stylesGrouped[theme].length === 0) {
+            return;
         }
-    }
-    processedStyleNames.push(name);
-});
-const toCSSCase = (name) => name.toLowerCase().replace(/(\s|\/)/g, "-");
-let output = "";
-Object.keys(stylesGrouped).forEach((theme) => {
-    if (stylesGrouped[theme].length === 0) {
-        return;
-    }
-    output += `@theme-${theme.toLowerCase()} {\n`;
-    const sharedStyles = stylesGrouped[theme].filter((s) => s.scope === "shared");
-    const componentStyles = stylesGrouped[theme].filter((s) => s.scope === "component");
-    if (sharedStyles.length) {
+        output += `@theme-${theme.toLowerCase()} {\n`;
+        const sharedStyles = stylesGrouped[theme].filter((s) => s.scope === "shared");
+        const componentStyles = stylesGrouped[theme].filter((s) => s.scope === "component");
+        if (sharedStyles.length) {
+            if (componentStyles.length) {
+                output += `\n`;
+            }
+            sharedStyles.forEach((style) => {
+                const styleName = toCSSCase(getStyleNameWithoutTheme(style.styleName));
+                const baseStyleName = toCSSCase(style.baseStyleName);
+                output += `  --${styleName}: var(--${baseStyleName});\n`;
+            });
+            if (componentStyles.length) {
+                output += `\n`;
+            }
+        }
         if (componentStyles.length) {
-            output += `\n`;
+            output += `  .root {\n`;
+            componentStyles.forEach((style) => {
+                const styleName = toCSSCase(style.styleName.split("/").pop());
+                const baseStyleName = toCSSCase(style.baseStyleName);
+                output += `    --${styleName}: var(--${baseStyleName});\n`;
+            });
+            output += `  }\n`;
         }
-        sharedStyles.forEach((style) => {
-            const styleName = toCSSCase(getStyleNameWithoutTheme(style.styleName));
-            const baseStyleName = toCSSCase(style.baseStyleName);
-            output += `  --${styleName}: var(--${baseStyleName});\n`;
-        });
-        if (componentStyles.length) {
-            output += `\n`;
-        }
-    }
-    if (componentStyles.length) {
-        output += `  .root {\n`;
-        componentStyles.forEach((style) => {
-            const styleName = toCSSCase(style.styleName.split("/").pop());
-            const baseStyleName = toCSSCase(style.baseStyleName);
-            output += `    --${styleName}: var(--${baseStyleName});\n`;
-        });
-        output += `  }\n`;
-    }
-    output += `}\n\n`;
-});
-figma.ui.postMessage({ code: output, sharedStyleNames, nonBaseStyleNames });
-// uses shared styles:
-// don't use base DS styles
-// collect styles from base color swatches and output
-// const existingStyleNames = [];
-// const collectedStyleDataSimple = [];
-// collectedStyleData.forEach((style) => {
-//   const name = style.name.split("/").pop();
-//   if (!/(Gray|Green|Khaki|Purple|Red)/.test(name)) {
-//     return;
-//   }
-//   if (existingStyleNames.includes(name)) {
-//     return;
-//   }
-//   collectedStyleDataSimple.push({
-//     name,
-//     type: style.type,
-//     paints: style.paints,
-//   });
-//   existingStyleNames.push(name);
-// });
-// console.log(JSON.stringify(collectedStyleDataSimple));
+        output += `}\n\n`;
+    });
+    figma.ui.postMessage({ code: output, sharedStyleNames, nonBaseStyleNames });
+}
