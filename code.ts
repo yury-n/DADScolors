@@ -1162,6 +1162,7 @@ function collectColorStyles(node) {
     node.children.forEach((child) => {
       if (
         child.type === "INSTANCE" &&
+        currentComponentDSIndex &&
         getDSindex(child.name) &&
         getDSindex(child.name) !== currentComponentDSIndex
       ) {
@@ -1306,16 +1307,16 @@ function collectEffectStyles(node) {
 
 const getStyleNameWithoutTheme = (name) => {
   const nameParts = name.split("/");
-  nameParts.shift();
-  const nameWithoutTheme = nameParts.join("/");
-  return nameWithoutTheme;
+  return nameParts.pop();
 };
 
 const toCSSCase = (name: string) => name.toLowerCase().replace(/(\s|\/)/g, "-");
 
 const selections = Array.from(figma.currentPage.selection);
 
-if (selections.length > 1) {
+const IS_COLLECT_MODE = false;
+
+if (IS_COLLECT_MODE) {
   // collect mode
   selections.forEach((selection) => {
     if (selection) {
@@ -1343,20 +1344,23 @@ if (selections.length > 1) {
   console.log(JSON.stringify(collectedStyleDataSimple));
 } else {
   // generate mode
-  const selection = selections[0];
-  const frameName = selection.name;
-  currentComponentDSIndex = getDSindex(frameName);
 
-  if (selection) {
+  if (selections.length === 1) {
+    const selection = selections[0];
+    const frameName = selection.name;
+    currentComponentDSIndex = getDSindex(frameName);
+  }
+
+  selections.forEach((selection) => {
+    console.log({ selection });
     collectColorStyles(selection);
     collectEffectStyles(selection);
     collectTextStyles(selection);
-  }
+  });
 
   console.log({ collectedStyleData });
 
   const processedStyleNames = [];
-  const sharedStyleNames = [];
   const noThemeStyleNames = [];
   const nonBaseStyleNames = [];
   const stylesGrouped = {
@@ -1399,9 +1403,6 @@ if (selections.length > 1) {
       } else {
         nonBaseStyleNames.push(name);
       }
-      if (!isComponentStyle && !sharedStyleNames.includes(nameWithoutTheme)) {
-        sharedStyleNames.push(nameWithoutTheme);
-      }
     }
     processedStyleNames.push(name);
   });
@@ -1411,7 +1412,7 @@ if (selections.length > 1) {
     if (stylesGrouped[theme].length === 0) {
       return;
     }
-    output += `@theme-${theme.toLowerCase()} {\n`;
+    output += `@include theme-${theme.toLowerCase()}() {\n`;
     const sharedStyles = stylesGrouped[theme].filter(
       (s) => s.scope === "shared"
     );
@@ -1443,5 +1444,5 @@ if (selections.length > 1) {
     output += `}\n\n`;
   });
 
-  figma.ui.postMessage({ code: output, sharedStyleNames, nonBaseStyleNames });
+  figma.ui.postMessage({ code: output, nonBaseStyleNames });
 }

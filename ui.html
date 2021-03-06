@@ -84,16 +84,11 @@
 
 <script>
   onmessage = (event) => {
-    const { code, sharedStyleNames, nonBaseStyleNames } = event.data.pluginMessage;
-    const sharedStyleNamesFormatted = sharedStyleNames.map(s => s.replace(/\//g, ' <strong>/</strong> '));
+    const { code, nonBaseStyleNames } = event.data.pluginMessage;
     const nonBaseStyleNamesFormatted = nonBaseStyleNames.map(s => s.replace(/\//g, ' <strong>/</strong> '));    
     if (nonBaseStyleNames.length > 0) {
       document.getElementById('non-DS-styles').innerHTML = '<span class="tag invalid">' + nonBaseStyleNames.join('</span><span class="tag invalid">') + '</span>';
       document.getElementById('non-DS-styles-block').style.display = 'block';
-    }
-    if (sharedStyleNames.length > 0) {
-      document.getElementById('shared-list').innerHTML = '<span class="tag">' + sharedStyleNamesFormatted.join('</span><span class="tag">') + '</span>';
-      document.getElementById('shared-block').style.display = 'block';
     }
     document.getElementById('code').value = code;
   }
