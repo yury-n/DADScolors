@@ -3,14 +3,14 @@ const collectedStyleData = [];
 
 const baseStyles = [
   {
-    name: "Gradient4",
-    type: "PAINT",
+    name: 'Gradient4',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -39,14 +39,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gradient1",
-    type: "PAINT",
+    name: 'Gradient1',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -75,14 +75,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gradient2",
-    type: "PAINT",
+    name: 'Gradient2',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -111,14 +111,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gradient3",
-    type: "PAINT",
+    name: 'Gradient3',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -147,14 +147,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gradient5",
-    type: "PAINT",
+    name: 'Gradient5',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -178,14 +178,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gradient6",
-    type: "PAINT",
+    name: 'Gradient6',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -209,14 +209,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray9",
-    type: "PAINT",
+    name: 'Gray9',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.0235294122248888,
           g: 0.027450980618596077,
@@ -226,14 +226,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray8",
-    type: "PAINT",
+    name: 'Gray8',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.08627451211214066,
           g: 0.10196078568696976,
@@ -243,14 +243,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray7",
-    type: "PAINT",
+    name: 'Gray7',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.13333334028720856,
           g: 0.15294118225574493,
@@ -260,14 +260,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray6",
-    type: "PAINT",
+    name: 'Gray6',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.364705890417099,
           g: 0.364705890417099,
@@ -277,14 +277,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray5",
-    type: "PAINT",
+    name: 'Gray5',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.5137255191802979,
           g: 0.5215686559677124,
@@ -294,14 +294,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray2",
-    type: "PAINT",
+    name: 'Gray2',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9490196108818054,
           g: 0.9490196108818054,
@@ -311,27 +311,27 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray1",
-    type: "PAINT",
+    name: 'Gray1',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 1, g: 1, b: 1 },
       },
     ],
   },
   {
-    name: "Gray3",
-    type: "PAINT",
+    name: 'Gray3',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9176470637321472,
           g: 0.9176470637321472,
@@ -341,14 +341,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Gray4",
-    type: "PAINT",
+    name: 'Gray4',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.6941176652908325,
           g: 0.6941176652908325,
@@ -358,14 +358,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red3",
-    type: "PAINT",
+    name: 'Red3',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9921568632125854,
           g: 0.843137264251709,
@@ -375,14 +375,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red1",
-    type: "PAINT",
+    name: 'Red1',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9960784316062927,
           g: 0.9490196108818054,
@@ -392,14 +392,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red6",
-    type: "PAINT",
+    name: 'Red6',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.6745098233222961,
           g: 0.03529411926865578,
@@ -409,14 +409,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red5",
-    type: "PAINT",
+    name: 'Red5',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9607843160629272,
           g: 0.2235294133424759,
@@ -426,14 +426,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red2",
-    type: "PAINT",
+    name: 'Red2',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9960784316062927,
           g: 0.8980392217636108,
@@ -443,14 +443,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red7",
-    type: "PAINT",
+    name: 'Red7',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.45098039507865906,
           g: 0.0235294122248888,
@@ -460,14 +460,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red8",
-    type: "PAINT",
+    name: 'Red8',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.3019607961177826,
           g: 0.01568627543747425,
@@ -477,14 +477,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red9",
-    type: "PAINT",
+    name: 'Red9',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.2235294133424759,
           g: 0.0117647061124444,
@@ -494,14 +494,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Red4",
-    type: "PAINT",
+    name: 'Red4',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9686274528503418,
           g: 0.3803921639919281,
@@ -511,66 +511,66 @@ const baseStyles = [
     ],
   },
   {
-    name: "Purple2",
-    type: "PAINT",
+    name: 'Purple2',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.929411768913269, g: 0.929411768913269, b: 1 },
       },
     ],
   },
   {
-    name: "Purple1",
-    type: "PAINT",
+    name: 'Purple1',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.9647058844566345, g: 0.9647058844566345, b: 1 },
       },
     ],
   },
   {
-    name: "Purple3",
-    type: "PAINT",
+    name: 'Purple3',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.8901960849761963, g: 0.8941176533699036, b: 1 },
       },
     ],
   },
   {
-    name: "Purple5",
-    type: "PAINT",
+    name: 'Purple5',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.4588235318660736, g: 0.4745098054409027, b: 1 },
       },
     ],
   },
   {
-    name: "Purple7",
-    type: "PAINT",
+    name: 'Purple7',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.24463993310928345,
           g: 0.24463993310928345,
@@ -580,14 +580,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Purple6",
-    type: "PAINT",
+    name: 'Purple6',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.3137255012989044,
           g: 0.3137255012989044,
@@ -597,14 +597,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Purple9",
-    type: "PAINT",
+    name: 'Purple9',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.14509804546833038,
           g: 0.14509804546833038,
@@ -614,14 +614,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Purple8",
-    type: "PAINT",
+    name: 'Purple8',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.1921568661928177,
           g: 0.1921568661928177,
@@ -631,27 +631,27 @@ const baseStyles = [
     ],
   },
   {
-    name: "Purple4",
-    type: "PAINT",
+    name: 'Purple4',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.6509804129600525, g: 0.658823549747467, b: 1 },
       },
     ],
   },
   {
-    name: "Khaki9",
-    type: "PAINT",
+    name: 'Khaki9',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.13050749897956848,
           g: 0.19162343442440033,
@@ -661,14 +661,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki5",
-    type: "PAINT",
+    name: 'Khaki5',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.545098066329956,
           g: 0.6196078658103943,
@@ -678,14 +678,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki1",
-    type: "PAINT",
+    name: 'Khaki1',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9558827877044678,
           g: 0.9791234135627747,
@@ -695,14 +695,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki8",
-    type: "PAINT",
+    name: 'Khaki8',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.1923229694366455,
           g: 0.27079010009765625,
@@ -712,14 +712,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki7",
-    type: "PAINT",
+    name: 'Khaki7',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.27450981736183167,
           g: 0.3607843220233917,
@@ -729,14 +729,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki6",
-    type: "PAINT",
+    name: 'Khaki6',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.3803921639919281,
           g: 0.45098039507865906,
@@ -746,14 +746,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki2",
-    type: "PAINT",
+    name: 'Khaki2',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.9058823585510254,
           g: 0.929411768913269,
@@ -763,14 +763,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki3",
-    type: "PAINT",
+    name: 'Khaki3',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.8627451062202454,
           g: 0.8980392217636108,
@@ -780,14 +780,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Khaki4",
-    type: "PAINT",
+    name: 'Khaki4',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.658823549747467,
           g: 0.6980392336845398,
@@ -797,131 +797,131 @@ const baseStyles = [
     ],
   },
   {
-    name: "Green1",
-    type: "PAINT",
+    name: 'Green1',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.9098039269447327, g: 1, b: 0.9686274528503418 },
       },
     ],
   },
   {
-    name: "Green7",
-    type: "PAINT",
+    name: 'Green7',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0, g: 0.4000000059604645, b: 0.27462682127952576 },
       },
     ],
   },
   {
-    name: "Green8",
-    type: "PAINT",
+    name: 'Green8',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0, g: 0.2980392277240753, b: 0.20392157137393951 },
       },
     ],
   },
   {
-    name: "Green9",
-    type: "PAINT",
+    name: 'Green9',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0, g: 0.18039216101169586, b: 0.12156862765550613 },
       },
     ],
   },
   {
-    name: "Green6",
-    type: "PAINT",
+    name: 'Green6',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0, g: 0.6235294342041016, b: 0.42352941632270813 },
       },
     ],
   },
   {
-    name: "Green2",
-    type: "PAINT",
+    name: 'Green2',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.7254902124404907, g: 1, b: 0.9098039269447327 },
       },
     ],
   },
   {
-    name: "Green3",
-    type: "PAINT",
+    name: 'Green3',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0.6041666269302368, g: 1, b: 0.8691459894180298 },
       },
     ],
   },
   {
-    name: "Green4",
-    type: "PAINT",
+    name: 'Green4',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0, g: 0.8980392217636108, b: 0.6078431606292725 },
       },
     ],
   },
   {
-    name: "Green5",
-    type: "PAINT",
+    name: 'Green5',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: { r: 0, g: 0.8274509906768799, b: 0.5607843399047852 },
       },
     ],
   },
   {
-    name: "GreenCTA",
-    type: "PAINT",
+    name: 'GreenCTA',
+    type: 'PAINT',
     paints: [
       {
-        type: "SOLID",
+        type: 'SOLID',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         color: {
           r: 0.1725490242242813,
           g: 0.529411792755127,
@@ -931,14 +931,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Green Overlay 1",
-    type: "PAINT",
+    name: 'Green Overlay 1',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -967,14 +967,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Green Overlay 2",
-    type: "PAINT",
+    name: 'Green Overlay 2',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -1003,14 +1003,14 @@ const baseStyles = [
     ],
   },
   {
-    name: "Green Overlay 3",
-    type: "PAINT",
+    name: 'Green Overlay 3',
+    type: 'PAINT',
     paints: [
       {
-        type: "GRADIENT_LINEAR",
+        type: 'GRADIENT_LINEAR',
         visible: true,
         opacity: 1,
-        blendMode: "NORMAL",
+        blendMode: 'NORMAL',
         gradientStops: [
           {
             color: {
@@ -1046,7 +1046,7 @@ const baseStyles = [
 
 var pSlice = Array.prototype.slice;
 var Object_keys =
-  typeof Object.keys === "function"
+  typeof Object.keys === 'function'
     ? Object.keys
     : function (obj) {
         var keys = [];
@@ -1058,7 +1058,7 @@ var deepEqual = function (actual, expected) {
     return true;
   } else if (actual instanceof Date && expected instanceof Date) {
     return actual.getTime() === expected.getTime();
-  } else if (typeof actual != "object" && typeof expected != "object") {
+  } else if (typeof actual != 'object' && typeof expected != 'object') {
     return actual == expected;
   } else {
     return objEquiv(actual, expected);
@@ -1069,7 +1069,7 @@ function isUndefinedOrNull(value) {
   return value === null || value === undefined;
 }
 function isArguments(object) {
-  return Object.prototype.toString.call(object) == "[object Arguments]";
+  return Object.prototype.toString.call(object) == '[object Arguments]';
 }
 function objEquiv(a, b) {
   if (isUndefinedOrNull(a) || isUndefinedOrNull(b)) return false;
@@ -1101,7 +1101,7 @@ function objEquiv(a, b) {
   for (i = ka.length - 1; i >= 0; i--) {
     key = ka[i];
     let isDeepEqual = deepEqual(a[key], b[key]);
-    if (["r", "g", "b"].includes(key)) {
+    if (['r', 'g', 'b'].includes(key)) {
       isDeepEqual = deepEqual(
         Math.round(a[key] * 255),
         Math.round(b[key] * 255)
@@ -1131,15 +1131,15 @@ figma.showUI(__html__, { width: 600, height: 400 });
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
-figma.ui.onmessage = (msg) => {
+figma.ui.onmessage = msg => {
   // One way of distinguishing between different types of messages sent from
   // your HTML page is to use an object with a "type" property like this.
-  if (msg.type === "create-rectangles") {
+  if (msg.type === 'create-rectangles') {
     const nodes: SceneNode[] = [];
     for (let i = 0; i < msg.count; i++) {
       const rect = figma.createRectangle();
       rect.x = i * 150;
-      rect.fills = [{ type: "SOLID", color: { r: 1, g: 0.5, b: 0 } }];
+      rect.fills = [{ type: 'SOLID', color: { r: 1, g: 0.5, b: 0 } }];
       figma.currentPage.appendChild(rect);
       nodes.push(rect);
     }
@@ -1159,9 +1159,9 @@ function getDSindex(name) {
 
 function collectColorStyles(node) {
   if (node.children) {
-    node.children.forEach((child) => {
+    node.children.forEach(child => {
       if (
-        child.type === "INSTANCE" &&
+        child.type === 'INSTANCE' &&
         currentComponentDSIndex &&
         getDSindex(child.name) &&
         getDSindex(child.name) !== currentComponentDSIndex
@@ -1172,7 +1172,7 @@ function collectColorStyles(node) {
       collectColorStyles(child);
     });
   }
-  if (node.type === "COMPONENT" || "INSTANCE" || "FRAME" || "GROUP") {
+  if (node.type === 'COMPONENT' || 'INSTANCE' || 'FRAME' || 'GROUP') {
     if (node.backgroundStyleId) {
       let objectStyle = figma.getStyleById(node.backgroundStyleId);
       if (objectStyle.key) {
@@ -1180,27 +1180,27 @@ function collectColorStyles(node) {
           name: objectStyle.name,
           description: objectStyle.description,
           key: objectStyle.key,
-          type: "PAINT",
-          paints: objectStyle["paints"],
+          type: 'PAINT',
+          paints: objectStyle['paints'],
         };
         if (style.name && style.key && style.type) {
           collectedStyleData.push(style);
         } else {
-          figma.notify("Error adding theme");
-          throw new Error("Error adding theme");
+          figma.notify('Error adding theme');
+          throw new Error('Error adding theme');
         }
       }
     }
   }
   if (
-    node.type === "RECTANGLE" ||
-    "POLYGON" ||
-    "ELLIPSE" ||
-    "STAR" ||
-    "TEXT" ||
-    "VECTOR" ||
-    "BOOLEAN_OPERATION" ||
-    "LINE"
+    node.type === 'RECTANGLE' ||
+    'POLYGON' ||
+    'ELLIPSE' ||
+    'STAR' ||
+    'TEXT' ||
+    'VECTOR' ||
+    'BOOLEAN_OPERATION' ||
+    'LINE'
   ) {
     if (node.fillStyleId) {
       let objectStyle = figma.getStyleById(node.fillStyleId);
@@ -1212,14 +1212,14 @@ function collectColorStyles(node) {
           name: objectStyle.name,
           description: objectStyle.description,
           key: objectStyle.key,
-          type: "PAINT",
-          paints: objectStyle["paints"],
+          type: 'PAINT',
+          paints: objectStyle['paints'],
         };
         if (style.name && style.key && style.type) {
           collectedStyleData.push(style);
         } else {
-          figma.notify("Error adding theme");
-          throw new Error("Error adding theme");
+          figma.notify('Error adding theme');
+          throw new Error('Error adding theme');
         }
       }
     }
@@ -1230,13 +1230,13 @@ function collectColorStyles(node) {
           name: objectStyle.name,
           description: objectStyle.description,
           key: objectStyle.key,
-          type: "PAINT",
-          paints: objectStyle["paints"],
+          type: 'PAINT',
+          paints: objectStyle['paints'],
         };
         if (style.name && style.key && style.type) {
           collectedStyleData.push(style);
         } else {
-          figma.notify("Error adding theme");
+          figma.notify('Error adding theme');
           return;
         }
       }
@@ -1248,16 +1248,16 @@ function collectTextStyles(node) {
   // check for children on note, if they exist, run them through this function
   // this will help us walk the tree to the bottom most level
   if (node.children) {
-    node.children.forEach((child) => {
+    node.children.forEach(child => {
       collectTextStyles(child);
     });
   }
 
   if (
-    node.type === "TEXT" &&
-    node.textStyleId != "MIXED" &&
+    node.type === 'TEXT' &&
+    node.textStyleId != 'MIXED' &&
     node.textStyleId &&
-    typeof node.textStyleId === "string"
+    typeof node.textStyleId === 'string'
   ) {
     let objectStyle = figma.getStyleById(node.textStyleId);
     // key will only be available for remote styles
@@ -1266,13 +1266,13 @@ function collectTextStyles(node) {
         name: objectStyle.name,
         description: objectStyle.description,
         key: objectStyle.key,
-        type: "TEXT",
+        type: 'TEXT',
       };
       if (style.name && style.key && style.type) {
         collectedStyleData.push(style);
       } else {
-        figma.notify("Error adding theme");
-        throw new Error("Error adding theme");
+        figma.notify('Error adding theme');
+        throw new Error('Error adding theme');
       }
     }
   }
@@ -1281,7 +1281,7 @@ function collectTextStyles(node) {
 // grab effect styles
 function collectEffectStyles(node) {
   if (node.children) {
-    node.children.forEach((child) => {
+    node.children.forEach(child => {
       collectEffectStyles(child);
     });
   }
@@ -1293,24 +1293,24 @@ function collectEffectStyles(node) {
         name: objectStyle.name,
         description: objectStyle.description,
         key: objectStyle.key,
-        type: "TEXT",
+        type: 'TEXT',
       };
       if (style.name && style.key && style.type) {
         collectedStyleData.push(style);
       } else {
-        figma.notify("Error adding theme");
-        throw new Error("Error adding theme");
+        figma.notify('Error adding theme');
+        throw new Error('Error adding theme');
       }
     }
   }
 }
 
-const getStyleNameWithoutTheme = (name) => {
-  const nameParts = name.split("/");
+const getStyleNameWithoutTheme = name => {
+  const nameParts = name.split('/');
   return nameParts.pop();
 };
 
-const toCSSCase = (name: string) => name.toLowerCase().replace(/(\s|\/)/g, "-");
+const toCSSCase = (name: string) => name.toLowerCase().replace(/(\s|\/)/g, '-');
 
 const selections = Array.from(figma.currentPage.selection);
 
@@ -1318,15 +1318,15 @@ const IS_COLLECT_MODE = false;
 
 if (IS_COLLECT_MODE) {
   // collect mode
-  selections.forEach((selection) => {
+  selections.forEach(selection => {
     if (selection) {
       collectColorStyles(selection);
     }
   });
   const existingStyleNames = [];
   const collectedStyleDataSimple = [];
-  collectedStyleData.forEach((style) => {
-    const name = style.name.split("/").pop();
+  collectedStyleData.forEach(style => {
+    const name = style.name.split('/').pop();
     if (!/(Gray|Green|Khaki|Purple|Red|Gradient)/.test(name)) {
       return;
     }
@@ -1351,7 +1351,7 @@ if (IS_COLLECT_MODE) {
     currentComponentDSIndex = getDSindex(frameName);
   }
 
-  selections.forEach((selection) => {
+  selections.forEach(selection => {
     console.log({ selection });
     collectColorStyles(selection);
     collectEffectStyles(selection);
@@ -1362,34 +1362,34 @@ if (IS_COLLECT_MODE) {
 
   const processedStyleNames = [];
   const noThemeStyleNames = [];
-  const nonBaseStyleNames = [];
+  const nonPaletteStylesNames = [];
   const stylesGrouped = {
     Dark: [],
     Light: [],
     Green: [],
     Any: [],
   };
-  collectedStyleData.forEach((style) => {
+  collectedStyleData.forEach(style => {
     const name = style.name;
     const isComponentStyle = /(Dark|Light|Green|Any)\/[0-9]+\./.test(name);
 
     if (processedStyleNames.includes(name)) {
       return;
     }
-    const nameParts = name.split("/");
-    if (nameParts[1] === "Specs Kit") {
+    const nameParts = name.split('/');
+    if (nameParts[1] === 'Specs Kit') {
       return; // ignore
     }
     const theme = nameParts.shift();
-    const nameWithoutTheme = nameParts.join("/");
+    const nameWithoutTheme = nameParts.join('/');
 
-    if (!["Dark", "Light", "Green", "Any"].includes(theme)) {
+    if (!['Dark', 'Light', 'Green', 'Any'].includes(theme)) {
       noThemeStyleNames.push(name);
     } else {
       let baseStyleName = style.description;
       if (!baseStyleName) {
         baseStyleName = (
-          baseStyles.find((baseStyle) =>
+          baseStyles.find(baseStyle =>
             deepEqual(baseStyle.paints, style.paints)
           ) || {}
         ).name;
@@ -1398,32 +1398,30 @@ if (IS_COLLECT_MODE) {
         stylesGrouped[theme].push({
           styleName: name,
           baseStyleName: baseStyleName,
-          scope: isComponentStyle ? "component" : "shared",
+          scope: isComponentStyle ? 'component' : 'shared',
         });
       } else {
-        nonBaseStyleNames.push(name);
+        nonPaletteStylesNames.push(name);
       }
     }
     processedStyleNames.push(name);
   });
 
-  let output = "";
-  Object.keys(stylesGrouped).forEach((theme) => {
+  let output = '';
+  Object.keys(stylesGrouped).forEach(theme => {
     if (stylesGrouped[theme].length === 0) {
       return;
     }
     output += `@include theme-${theme.toLowerCase()}() {\n`;
-    const sharedStyles = stylesGrouped[theme].filter(
-      (s) => s.scope === "shared"
-    );
+    const sharedStyles = stylesGrouped[theme].filter(s => s.scope === 'shared');
     const componentStyles = stylesGrouped[theme].filter(
-      (s) => s.scope === "component"
+      s => s.scope === 'component'
     );
     if (sharedStyles.length) {
       if (componentStyles.length) {
         output += `\n`;
       }
-      sharedStyles.forEach((style) => {
+      sharedStyles.forEach(style => {
         const styleName = toCSSCase(getStyleNameWithoutTheme(style.styleName));
         const baseStyleName = toCSSCase(style.baseStyleName);
         output += `  --${styleName}: var(--${baseStyleName});\n`;
@@ -1434,8 +1432,8 @@ if (IS_COLLECT_MODE) {
     }
     if (componentStyles.length) {
       output += `  .root {\n`;
-      componentStyles.forEach((style) => {
-        const styleName = toCSSCase(style.styleName.split("/").pop());
+      componentStyles.forEach(style => {
+        const styleName = toCSSCase(style.styleName.split('/').pop());
         const baseStyleName = toCSSCase(style.baseStyleName);
         output += `    --${styleName}: var(--${baseStyleName});\n`;
       });
@@ -1444,5 +1442,5 @@ if (IS_COLLECT_MODE) {
     output += `}\n\n`;
   });
 
-  figma.ui.postMessage({ code: output, nonBaseStyleNames });
+  figma.ui.postMessage({ code: output, nonPaletteStylesNames });
 }
