@@ -1,5 +1,6 @@
 let currentComponentDSIndex;
 const collectedStyleData = [];
+const IS_COLLECT_MODE = false;
 const baseStyles = [
     {
         name: 'Gradient4',
@@ -1162,7 +1163,7 @@ function collectColorStyles(node) {
     if (node.type === 'COMPONENT' || 'INSTANCE' || 'FRAME' || 'GROUP') {
         if (node.backgroundStyleId) {
             let objectStyle = figma.getStyleById(node.backgroundStyleId);
-            if (objectStyle.key) {
+            if (objectStyle && objectStyle.key) {
                 let style = {
                     name: objectStyle.name,
                     description: objectStyle.description,
@@ -1190,7 +1191,7 @@ function collectColorStyles(node) {
         'LINE') {
         if (node.fillStyleId) {
             let objectStyle = figma.getStyleById(node.fillStyleId);
-            if (objectStyle.key) {
+            if (objectStyle && objectStyle.key) {
                 // if (objectStyle.name.includes("D1")) {
                 //   console.log(">>>", node.name);
                 // }
@@ -1212,7 +1213,7 @@ function collectColorStyles(node) {
         }
         if (node.strokeStyleId) {
             let objectStyle = figma.getStyleById(node.strokeStyleId);
-            if (objectStyle.key) {
+            if (objectStyle && objectStyle.key) {
                 let style = {
                     name: objectStyle.name,
                     description: objectStyle.description,
@@ -1245,7 +1246,7 @@ function collectTextStyles(node) {
         typeof node.textStyleId === 'string') {
         let objectStyle = figma.getStyleById(node.textStyleId);
         // key will only be available for remote styles
-        if (objectStyle.key) {
+        if (objectStyle && objectStyle.key) {
             let style = {
                 name: objectStyle.name,
                 description: objectStyle.description,
@@ -1272,7 +1273,7 @@ function collectEffectStyles(node) {
     if (node.effectStyleId) {
         let objectStyle = figma.getStyleById(node.effectStyleId);
         // key will only be available for remote styles
-        if (objectStyle.key) {
+        if (objectStyle && objectStyle.key) {
             let style = {
                 name: objectStyle.name,
                 description: objectStyle.description,
@@ -1295,7 +1296,6 @@ const getStyleNameWithoutTheme = name => {
 };
 const toCSSCase = (name) => name.toLowerCase().replace(/(\s|\/)/g, '-');
 const selections = Array.from(figma.currentPage.selection);
-const IS_COLLECT_MODE = false;
 if (IS_COLLECT_MODE) {
     // collect mode
     selections.forEach(selection => {
