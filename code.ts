@@ -4,38 +4,707 @@ const IS_COLLECT_MODE = false;
 
 const baseStyles = [
   {
-    name: 'Gradient4',
+    name: 'Green9',
     type: 'PAINT',
     paints: [
       {
-        type: 'GRADIENT_LINEAR',
+        type: 'SOLID',
         visible: true,
         opacity: 1,
         blendMode: 'NORMAL',
-        gradientStops: [
-          {
-            color: {
-              r: 0.2980392277240753,
-              g: 0.8666666746139526,
-              b: 0.7411764860153198,
-              a: 1,
-            },
-            position: 0,
-          },
-          {
-            color: {
-              r: 0.0235294122248888,
-              g: 0.9490196108818054,
-              b: 0.5254902243614197,
-              a: 1,
-            },
-            position: 1,
-          },
-        ],
-        gradientTransform: [
-          [-0.4999999403953552, 0.4999999701976776, 0.4999999403953552],
-          [-1.237088918685913, -1.237088918685913, 1.737088918685913],
-        ],
+        color: { r: 0, g: 0.18039216101169586, b: 0.12156862765550613 },
+      },
+    ],
+  },
+  {
+    name: 'Green8',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0, g: 0.2980392277240753, b: 0.20392157137393951 },
+      },
+    ],
+  },
+  {
+    name: 'Green7',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0, g: 0.4000000059604645, b: 0.27462682127952576 },
+      },
+    ],
+  },
+  {
+    name: 'Green6',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0, g: 0.6235294342041016, b: 0.42352941632270813 },
+      },
+    ],
+  },
+  {
+    name: 'Green5',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0, g: 0.7816406488418579, b: 0.5297374725341797 },
+      },
+    ],
+  },
+  {
+    name: 'Green4',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0, g: 0.8980392217636108, b: 0.6078431606292725 },
+      },
+    ],
+  },
+  {
+    name: 'Green3',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.6041666269302368, g: 1, b: 0.8691459894180298 },
+      },
+    ],
+  },
+  {
+    name: 'Green2',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.7254902124404907, g: 1, b: 0.9098039269447327 },
+      },
+    ],
+  },
+  {
+    name: 'Green1',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.9098039269447327, g: 1, b: 0.9686274528503418 },
+      },
+    ],
+  },
+  {
+    name: 'Khaki9',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.13050749897956848,
+          g: 0.19162343442440033,
+          b: 0.14884227514266968,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki8',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.1923229694366455,
+          g: 0.27079010009765625,
+          b: 0.2172897756099701,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki7',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.27450981736183167,
+          g: 0.3607843220233917,
+          b: 0.3019607961177826,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki6',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.3803921639919281,
+          g: 0.45098039507865906,
+          b: 0.3843137323856354,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki5',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.545098066329956,
+          g: 0.6196078658103943,
+          b: 0.5607843399047852,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki4',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.658823549747467,
+          g: 0.6980392336845398,
+          b: 0.6549019813537598,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki3',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.8235294222831726,
+          g: 0.8705882430076599,
+          b: 0.800000011920929,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki2',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.8627451062202454,
+          g: 0.8980392217636108,
+          b: 0.843137264251709,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Khaki1',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9058823585510254,
+          g: 0.929411768913269,
+          b: 0.8941176533699036,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Purple9',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.13359373807907104,
+          g: 0.13359373807907104,
+          b: 0.3958333432674408,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Purple8',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.16442707180976868,
+          g: 0.16442707180976868,
+          b: 0.512499988079071,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Purple7',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.24463993310928345,
+          g: 0.24463993310928345,
+          b: 0.6791234612464905,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Purple6',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.3137255012989044,
+          g: 0.3137255012989044,
+          b: 0.7529411911964417,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Purple5',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.4588235318660736, g: 0.4745098054409027, b: 1 },
+      },
+    ],
+  },
+  {
+    name: 'Purple4',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.6509804129600525, g: 0.658823549747467, b: 1 },
+      },
+    ],
+  },
+  {
+    name: 'Purple3',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.8901960849761963, g: 0.8941176533699036, b: 1 },
+      },
+    ],
+  },
+  {
+    name: 'Purple2',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.929411768913269, g: 0.929411768913269, b: 1 },
+      },
+    ],
+  },
+  {
+    name: 'Purple1',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 0.9647058844566345, g: 0.9647058844566345, b: 1 },
+      },
+    ],
+  },
+  {
+    name: 'Red9',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.2235294133424759,
+          g: 0.0117647061124444,
+          b: 0.027450980618596077,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red8',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.3019607961177826,
+          g: 0.01568627543747425,
+          b: 0.03921568766236305,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red7',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.45098039507865906,
+          g: 0.0235294122248888,
+          b: 0.05882352963089943,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red6',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.6745098233222961,
+          g: 0.03529411926865578,
+          b: 0.08627451211214066,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red5',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9607843160629272,
+          g: 0.2235294133424759,
+          b: 0.2823529541492462,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red4',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9686274528503418,
+          g: 0.3803921639919281,
+          b: 0.4274509847164154,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red3',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9921568632125854,
+          g: 0.843137264251709,
+          b: 0.8549019694328308,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red2',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9960784316062927,
+          g: 0.8980392217636108,
+          b: 0.9058823585510254,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Red1',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9960784316062927,
+          g: 0.9490196108818054,
+          b: 0.9529411792755127,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray9',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.0235294122248888,
+          g: 0.027450980618596077,
+          b: 0.05098039284348488,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray8',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.08627451211214066,
+          g: 0.10196078568696976,
+          b: 0.12156862765550613,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray7',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.13333334028720856,
+          g: 0.15294118225574493,
+          b: 0.16862745583057404,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray6',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.364705890417099,
+          g: 0.364705890417099,
+          b: 0.42352941632270813,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray5',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.5137255191802979,
+          g: 0.5215686559677124,
+          b: 0.572549045085907,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray4',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.6941176652908325,
+          g: 0.6941176652908325,
+          b: 0.7254902124404907,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray3',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9176470637321472,
+          g: 0.9176470637321472,
+          b: 0.9176470637321472,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray2',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: {
+          r: 0.9725490212440491,
+          g: 0.9725490212440491,
+          b: 0.9725490212440491,
+        },
+      },
+    ],
+  },
+  {
+    name: 'Gray1',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'SOLID',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        color: { r: 1, g: 1, b: 1 },
       },
     ],
   },
@@ -148,7 +817,7 @@ const baseStyles = [
     ],
   },
   {
-    name: 'Gradient5',
+    name: 'Gradient4',
     type: 'PAINT',
     paints: [
       {
@@ -159,15 +828,51 @@ const baseStyles = [
         gradientStops: [
           {
             color: {
-              r: 0.9490196108818054,
-              g: 0.250980406999588,
-              b: 0.4313725531101227,
+              r: 0.2980392277240753,
+              g: 0.8666666746139526,
+              b: 0.7411764860153198,
               a: 1,
             },
             position: 0,
           },
           {
+            color: {
+              r: 0.0235294122248888,
+              g: 0.9490196108818054,
+              b: 0.5254902243614197,
+              a: 1,
+            },
+            position: 1,
+          },
+        ],
+        gradientTransform: [
+          [-0.4999999403953552, 0.4999999701976776, 0.4999999403953552],
+          [-1.237088918685913, -1.237088918685913, 1.737088918685913],
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Gradient5',
+    type: 'PAINT',
+    paints: [
+      {
+        type: 'GRADIENT_LINEAR',
+        visible: true,
+        opacity: 1,
+        blendMode: 'NORMAL',
+        gradientStops: [
+          {
             color: { r: 1, g: 0.7019608020782471, b: 0.3607843220233917, a: 1 },
+            position: 0,
+          },
+          {
+            color: {
+              r: 0.9490196108818054,
+              g: 0.250980406999588,
+              b: 0.4313725531101227,
+              a: 1,
+            },
             position: 1,
           },
         ],
@@ -205,836 +910,6 @@ const baseStyles = [
         gradientTransform: [
           [-0.4999999403953552, 0.4999999701976776, 0.4999999403953552],
           [-1.237088918685913, -1.237088918685913, 1.737088918685913],
-        ],
-      },
-    ],
-  },
-  {
-    name: 'Gray9',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.0235294122248888,
-          g: 0.027450980618596077,
-          b: 0.05098039284348488,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Gray8',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.08627451211214066,
-          g: 0.10196078568696976,
-          b: 0.12156862765550613,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Gray7',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.13333334028720856,
-          g: 0.15294118225574493,
-          b: 0.16862745583057404,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Gray6',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.364705890417099,
-          g: 0.364705890417099,
-          b: 0.42352941632270813,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Gray5',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.5137255191802979,
-          g: 0.5215686559677124,
-          b: 0.572549045085907,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Gray2',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9490196108818054,
-          g: 0.9490196108818054,
-          b: 0.9490196108818054,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Gray1',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 1, g: 1, b: 1 },
-      },
-    ],
-  },
-  {
-    name: 'Gray3',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9176470637321472,
-          g: 0.9176470637321472,
-          b: 0.9176470637321472,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Gray4',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.6941176652908325,
-          g: 0.6941176652908325,
-          b: 0.7254902124404907,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red3',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9921568632125854,
-          g: 0.843137264251709,
-          b: 0.8549019694328308,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red1',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9960784316062927,
-          g: 0.9490196108818054,
-          b: 0.9529411792755127,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red6',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.6745098233222961,
-          g: 0.03529411926865578,
-          b: 0.08627451211214066,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red5',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9607843160629272,
-          g: 0.2235294133424759,
-          b: 0.2823529541492462,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red2',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9960784316062927,
-          g: 0.8980392217636108,
-          b: 0.9058823585510254,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red7',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.45098039507865906,
-          g: 0.0235294122248888,
-          b: 0.05882352963089943,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red8',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.3019607961177826,
-          g: 0.01568627543747425,
-          b: 0.03921568766236305,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red9',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.2235294133424759,
-          g: 0.0117647061124444,
-          b: 0.027450980618596077,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Red4',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9686274528503418,
-          g: 0.3803921639919281,
-          b: 0.4274509847164154,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Purple2',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.929411768913269, g: 0.929411768913269, b: 1 },
-      },
-    ],
-  },
-  {
-    name: 'Purple1',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.9647058844566345, g: 0.9647058844566345, b: 1 },
-      },
-    ],
-  },
-  {
-    name: 'Purple3',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.8901960849761963, g: 0.8941176533699036, b: 1 },
-      },
-    ],
-  },
-  {
-    name: 'Purple5',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.4588235318660736, g: 0.4745098054409027, b: 1 },
-      },
-    ],
-  },
-  {
-    name: 'Purple7',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.24463993310928345,
-          g: 0.24463993310928345,
-          b: 0.6791234612464905,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Purple6',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.3137255012989044,
-          g: 0.3137255012989044,
-          b: 0.7529411911964417,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Purple9',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.14509804546833038,
-          g: 0.14509804546833038,
-          b: 0.4117647111415863,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Purple8',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.1921568661928177,
-          g: 0.1921568661928177,
-          b: 0.5529412031173706,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Purple4',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.6509804129600525, g: 0.658823549747467, b: 1 },
-      },
-    ],
-  },
-  {
-    name: 'Khaki9',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.13050749897956848,
-          g: 0.19162343442440033,
-          b: 0.14884227514266968,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki5',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.545098066329956,
-          g: 0.6196078658103943,
-          b: 0.5607843399047852,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki1',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9558827877044678,
-          g: 0.9791234135627747,
-          b: 0.9442623853683472,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki8',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.1923229694366455,
-          g: 0.27079010009765625,
-          b: 0.2172897756099701,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki7',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.27450981736183167,
-          g: 0.3607843220233917,
-          b: 0.3019607961177826,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki6',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.3803921639919281,
-          g: 0.45098039507865906,
-          b: 0.3843137323856354,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki2',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.9058823585510254,
-          g: 0.929411768913269,
-          b: 0.8941176533699036,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki3',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.8627451062202454,
-          g: 0.8980392217636108,
-          b: 0.843137264251709,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Khaki4',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.658823549747467,
-          g: 0.6980392336845398,
-          b: 0.6549019813537598,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Green1',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.9098039269447327, g: 1, b: 0.9686274528503418 },
-      },
-    ],
-  },
-  {
-    name: 'Green7',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0, g: 0.4000000059604645, b: 0.27462682127952576 },
-      },
-    ],
-  },
-  {
-    name: 'Green8',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0, g: 0.2980392277240753, b: 0.20392157137393951 },
-      },
-    ],
-  },
-  {
-    name: 'Green9',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0, g: 0.18039216101169586, b: 0.12156862765550613 },
-      },
-    ],
-  },
-  {
-    name: 'Green6',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0, g: 0.6235294342041016, b: 0.42352941632270813 },
-      },
-    ],
-  },
-  {
-    name: 'Green2',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.7254902124404907, g: 1, b: 0.9098039269447327 },
-      },
-    ],
-  },
-  {
-    name: 'Green3',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0.6041666269302368, g: 1, b: 0.8691459894180298 },
-      },
-    ],
-  },
-  {
-    name: 'Green4',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0, g: 0.8980392217636108, b: 0.6078431606292725 },
-      },
-    ],
-  },
-  {
-    name: 'Green5',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: { r: 0, g: 0.8274509906768799, b: 0.5607843399047852 },
-      },
-    ],
-  },
-  {
-    name: 'GreenCTA',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'SOLID',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        color: {
-          r: 0.1725490242242813,
-          g: 0.529411792755127,
-          b: 0.6470588445663452,
-        },
-      },
-    ],
-  },
-  {
-    name: 'Green Overlay 1',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'GRADIENT_LINEAR',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        gradientStops: [
-          {
-            color: {
-              r: 0.95686274766922,
-              g: 0.9803921580314636,
-              b: 0.9450980424880981,
-              a: 0,
-            },
-            position: 0,
-          },
-          {
-            color: {
-              r: 0.95686274766922,
-              g: 0.9803921580314636,
-              b: 0.9450980424880981,
-              a: 1,
-            },
-            position: 1,
-          },
-        ],
-        gradientTransform: [
-          [6.123234262925839e-17, 1, 0],
-          [-1, 6.123234262925839e-17, 1],
-        ],
-      },
-    ],
-  },
-  {
-    name: 'Green Overlay 2',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'GRADIENT_LINEAR',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        gradientStops: [
-          {
-            color: {
-              r: 0.9058823585510254,
-              g: 0.929411768913269,
-              b: 0.8941176533699036,
-              a: 0,
-            },
-            position: 0,
-          },
-          {
-            color: {
-              r: 0.9058823585510254,
-              g: 0.929411768913269,
-              b: 0.8941176533699036,
-              a: 1,
-            },
-            position: 1,
-          },
-        ],
-        gradientTransform: [
-          [6.123234262925839e-17, 1, 0],
-          [-1, 6.123234262925839e-17, 1],
-        ],
-      },
-    ],
-  },
-  {
-    name: 'Green Overlay 3',
-    type: 'PAINT',
-    paints: [
-      {
-        type: 'GRADIENT_LINEAR',
-        visible: true,
-        opacity: 1,
-        blendMode: 'NORMAL',
-        gradientStops: [
-          {
-            color: {
-              r: 0.8627451062202454,
-              g: 0.8980392217636108,
-              b: 0.843137264251709,
-              a: 0,
-            },
-            position: 0,
-          },
-          {
-            color: {
-              r: 0.8627451062202454,
-              g: 0.8980392217636108,
-              b: 0.843137264251709,
-              a: 1,
-            },
-            position: 1,
-          },
-        ],
-        gradientTransform: [
-          [6.123234262925839e-17, 1, 0],
-          [-1, 6.123234262925839e-17, 1],
         ],
       },
     ],
