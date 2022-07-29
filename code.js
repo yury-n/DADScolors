@@ -1,6 +1,7 @@
 let currentComponentDSIndex;
 const collectedStyleData = [];
 const IS_COLLECT_MODE = false;
+const OUTPUT_SHARED_STYLES = false;
 const baseStyles = [
     {
         name: "Gray6-1",
@@ -1640,13 +1641,14 @@ else {
     });
     let output = "";
     Object.keys(stylesGrouped).forEach((theme) => {
+        const printedStyles = [];
         if (stylesGrouped[theme].length === 0) {
             return;
         }
         output += `@include theme-${theme.toLowerCase()}() {\n`;
         const sharedStyles = stylesGrouped[theme].filter((s) => s.scope === "shared");
         const componentStyles = stylesGrouped[theme].filter((s) => s.scope === "component");
-        if (sharedStyles.length) {
+        if (OUTPUT_SHARED_STYLES && sharedStyles.length) {
             if (componentStyles.length) {
                 output += `\n`;
             }
@@ -1663,8 +1665,12 @@ else {
             output += `  .root {\n`;
             componentStyles.forEach((style) => {
                 const styleName = toCSSCase(style.styleName.split("/").pop());
+                if (printedStyles.includes(styleName)) {
+                    return;
+                }
                 const baseStyleName = toCSSCase(style.baseStyleName);
                 output += `    --${styleName}: var(--${baseStyleName});\n`;
+                printedStyles.push(styleName);
             });
             output += `  }\n`;
         }
